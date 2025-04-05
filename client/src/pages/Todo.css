@@ -1,0 +1,211 @@
+/* Wrapper centers the container vertically and horizontally */
+.todo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Main container styling */
+.todo-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Logout button */
+.logout-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.logout-btn:hover {
+  opacity: 0.85;
+}
+
+/* Heading */
+.todo-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+/* Task list styles */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.todo-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #999;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.todo-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Form layout */
+.todo-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.todo-input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  flex: 1;
+  min-width: 140px;
+}
+.todo-btn {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.todo-btn:hover {
+  background-color: #574fd6;
+}
+
+/* Action icons */
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.1);
+}
+
+.status-icon {
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+  transition: transform 0.2s ease;
+}
+.status-icon:hover {
+  transform: scale(1.2);
+}
+.status-icon.completed {
+  color: green;
+}
+.status-icon.ongoing {
+  color: orange;
+}
+
+/* Eye icon inside password input */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 2.5rem;
+  box-sizing: border-box;
+}
+
+.toggle-eye {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #ccc;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.toggle-eye:hover,
+.toggle-eye.active {
+  color: #4c8bf5;
+}
+
+.toggle-eye svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  pointer-events: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .todo-title {
+    font-size: 2.2rem;
+  }
+
+  .logout-btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .todo-form {
+    flex-direction: column;
+  }
+
+  .todo-input,
+  .todo-btn {
+    width: 100%;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .todo-item > div:last-child {
+    margin-top: 0.5rem;
+  }
+}

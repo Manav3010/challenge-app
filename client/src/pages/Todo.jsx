@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../api/axios';
+import axios, { clearAccessToken, markLoggingOut } from '../api/axios';
 import { useNavigate } from 'react-router-dom';
 import './Todo.css';
 
@@ -77,12 +77,18 @@ function Todo() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    navigate('/');
+  const handleLogout = async () => {
+    markLoggingOut(); // prevent refresh retry loop
+  
+    try {
+      await axios.post('/logout', {}, { withCredentials: true });
+    } catch (err) {
+      console.warn('Logout error:', err);
+    } finally {
+      clearAccessToken();
+      navigate('/');
+    }
   };
-
   useEffect(() => {
     fetchTasks();
   }, []);

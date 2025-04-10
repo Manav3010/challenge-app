@@ -18,7 +18,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 6,
+  },
+  phone: {
+    type: String,
+    required: true,
+    trim: true,
+    match: /^[0-9]{10}$/,
   }
 }, { timestamps: true });
 
+
 module.exports = mongoose.model('User', userSchema);
+
